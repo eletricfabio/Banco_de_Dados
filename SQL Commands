@@ -1,0 +1,53 @@
+drop table aluno; 
+
+CREATE TABLE Aluno ( 
+Id_Aluno varchar(6),
+Nome_Aluno varchar(15),
+Matricula int,
+Turma varchar(7),
+CPF varchar(10)
+);
+
+insert into Aluno (Id_Aluno,Nome_Aluno,Matricula,CPF) values ('012019','Fábio Vieira',123456,'1122334455');
+
+SELECT * FROM Aluno;
+
+SELECT NOME_ALUNO FROM Aluno;
+
+SELECT MATRICULA,NOME_ALUNO FROM Aluno;
+
+SELECT MATRICULA,Id_Aluno FROM Aluno;
+
+insert into Aluno (Id_Aluno,Nome_Aluno,Matricula,Turma,CPF) values ('012019','Fábio Vieira',000001,'ADS2019','1122334455');
+
+
+insert into Aluno (Id_Aluno,Nome_Aluno,Matricula,Turma,CPF) 
+values ('022019','Terra',000002,'ADS2018','1122334466');
+
+
+
+insert into Aluno (Id_Aluno,Nome_Aluno,Matricula,Turma,CPF) 
+values ('032019','Marte',000003,'ADS2018','1122334477');
+
+insert into Aluno (Id_Aluno,Nome_Aluno,Matricula,Turma,CPF) 
+values ('042019','Jupiter',000004,'ADS2017','1122334488');
+
+insert into Aluno (Id_Aluno,Nome_Aluno,Matricula,Turma,CPF) 
+values ('052019','Urano',000005,'ADS2016','1122334499');
+
+
+SELECT * FROM ALUNO
+
+SELECT Nome_Aluno,Turma FROM Aluno;
+
+SELECT * FROM ALUNO
+WHERE Turma='ADS2019';
+
+
+DELETE FROM Aluno WHERE ID_ALUNO=012019;
+
+ALTER TABLE Aluno 
+ADD CONSTRAINT PK_ID_ALUNO PRIMARY KEY (ID_ALUNO);
+
+SELECT * FROM ALUNO
+ORDER BY ID_ALUNO;
