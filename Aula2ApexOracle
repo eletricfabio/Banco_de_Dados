@@ -1,0 +1,87 @@
+CREATE TABLE Pessoa(
+	id int,
+	nome varchar (30),
+	sexo varchar(30)
+);
+
+insert into Pessoa (id,nome,sexo) values (01,'Rafael','Masculino');
+
+update pessoa
+set nome = 'Jobreba'
+where id = 3
+
+update pessoa
+set sexo = 'Feminino'
+where id = 3
+
+
+SELECT * FROM PESSOA
+
+CREATE SEQUENCE seq_Pessoa
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
+insert into Pessoa (id,nome,sexo) values (seq_pessoa.nextval,'Fábio','Masculino');
+
+insert into Pessoa (id,nome,sexo) values (seq_pessoa.nextval,'Natascha','Feminino');
+
+
+SELECT * FROM PESSOA
+
+CREATE TABLE Coracao(
+	 id int,
+	 fk_pessoa_id int,
+         idade int,
+	 peso int,
+	frequencia int
+);
+
+insert into Coracao (id,fk_pessoa_id,idade,peso,frequencia) values (1,1,35,56,64);
+
+update Coracao
+set idade = 35
+where id = 1
+
+SELECT * FROM Coracao
+
+ALTER TABLE Coracao
+ADD CONSTRAINT PK_ID PRIMARY KEY (ID);
+
+SELECT * FROM Coracao
+
+CREATE SEQUENCE seq_Coracao
+MINVALUE 1
+START WITH 3
+INCREMENT BY 1
+CACHE 10;
+
+DROP SEQUENCE seq_Coracao
+
+insert into Coracao (id,fk_pessoa_id,idade,peso,frequencia) values (seq_coracao.nextval,4,14,50,54);
+
+DELETE FROM coracao
+WHERE fk_pessoa_id=2;
+
+SELECT * FROM Coracao
+
+ORDER BY ID
+
+insert into Coracao (id,fk_pessoa_id,idade,peso,frequencia) values (2,2,25,36,62);
+
+update Coracao
+set fk_pessoa_id = 4
+where id = 4
+
+SELECT * FROM Coracao
+ORDER BY id;
+
+
+SELECT * FROM Coracao
+where idade > 20
+ORDER BY id;
+
+SELECT peso, frequencia FROM Coracao
+where idade > 20
+ORDER BY id;
