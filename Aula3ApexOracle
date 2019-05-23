@@ -14,3 +14,43 @@ CREATE TABLE PRONTUARIO (
 insert into PRONTUARIO (ID,Tipo,Data,Sintomas_sinais,Status,Laboratorial,Físico_patológica,Diagnóstico) values (1,'Ambulatório','16/05/2019','dor no corpo','Aberto','hemograma alterado','Sarampo','Caso Urgência')
 
 select * from prontuario;
+
+insert into PRONTUARIO (ID,Tipo,Data,Sintomas_sinais,Status,Laboratorial,Físico_patológica,Diagnóstico) values (1,'Ambulatório','16/05/2019','dor no corpo','Aberto','hemograma alterado','Sarampo','Caso Urgência')
+
+select * from prontuario;
+
+select * from pessoa;
+
+select * from doença;
+
+create table laudo(
+ id int,
+ fk_paciente int ,
+ fk_doenca int ,
+ data int 
+
+)
+
+alter table laudo
+modify fk_doenca varchar(30)
+
+ALTER TABLE laudo 
+ADD CONSTRAINT nmr_fk_paciente_id FOREIGN KEY (fk_paciente) REFERENCES Pessoa (id);
+
+ALTER TABLE laudo 
+ADD CONSTRAINT nmr_fk_doenca_cid FOREIGN KEY (fk_doenca) REFERENCES Doença (CID);
+
+
+select * from laudo
+
+insert into laudo (ID,fk_paciente,fk_doenca,data) values (0,3,'B05',20052019)
+
+
+select * from doença
+
+select doença.cid, pessoa.nome, pessoa.sexo, laudo.data, doença.descrição
+from pessoa
+inner join laudo
+on pessoa.id = laudo.fk_paciente
+inner join doença
+on laudo.fk_doenca = doença.CID
