@@ -1,0 +1,16 @@
+CREATE TABLE PRONTUARIO (
+         ID int,
+         fk_pessoa_id varchar(10),
+         fk_doença_CID varchar(10),
+	       Tipo varchar(15),
+	       Data varchar(10),
+         Sintomas_sinais varchar(25),
+         Status varchar(25),
+         Laboratorial varchar(25),
+         Físico_patológica varchar(25),
+         Diagnóstico varchar(25)
+);
+
+insert into PRONTUARIO (ID,Tipo,Data,Sintomas_sinais,Status,Laboratorial,Físico_patológica,Diagnóstico) values (1,'Ambulatório','16/05/2019','dor no corpo','Aberto','hemograma alterado','Sarampo','Caso Urgência')
+
+select * from prontuario;
